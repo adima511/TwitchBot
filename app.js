@@ -1,14 +1,11 @@
 const tmi = require("tmi.js");
-OAUTH_TOKEN = "oauth:sdrd5r4n5ms5i2v2rbqamrjug20p0x";
-BOT_USERNAME = "pudgehookbot";
-CHANNEL_NAME = "adima511";
 
 var express = require("express");
 var app = express();
 app.use(express.logger());
 
 app.get('/', function(request, response) {
-  response.send('Hello World!');
+  response.send('Bot activated');
 });
 
 // Define configuration options
@@ -21,10 +18,10 @@ const opts = {
     reconnect: true
   },
   identity: {
-    username: BOT_USERNAME,
-    password: OAUTH_TOKEN
+    username: process.env.BOT_USERNAME,
+    password: process.env.OAUTH_TOKEN
   },
-  channels: [CHANNEL_NAME]
+  channels: [process.env.CHANNEL_NAME]
 };
 
 var client = new tmi.client(opts);
