@@ -1,4 +1,7 @@
 const tmi = require("tmi.js");
+OAUTH_TOKEN = "oauth:sdrd5r4n5ms5i2v2rbqamrjug20p0x";
+BOT_USERNAME = "pudgehookbot";
+CHANNEL_NAME = "adima511";
 
 // Define configuration options
 const opts = {
@@ -10,10 +13,10 @@ const opts = {
     reconnect: true
   },
   identity: {
-    username: process.env.BOT_USERNAME,
-    password: process.env.OAUTH_TOKEN
+    username: BOT_USERNAME,
+    password: OAUTH_TOKEN
   },
-  channels: [process.env.CHANNEL_NAME]
+  channels: [CHANNEL_NAME]
 };
 
 var client = new tmi.client(opts);
@@ -74,21 +77,21 @@ client.on("chat", (channel, userstate, message, fromSelf) => {
   if (command === "хук") {
     // Get a random user but skip the user requesting a random user
     if (dest !== undefined) {
-      client.action(
+      client.say(
         chan,
         `${userstate.username} кинул хук в чат и попал в ${dest}`
       );
     } else {
-      getRandomChatter(chan)
+      getRandomChatter(chan, /*opts = {skipList = [""] }*/)
         .then(user => {
           if (user === null) {
-            client.action(
+            client.say(
               chan,
               `${userstate.username}, there was no one to choose.`
             );
           } else {
             let { name, type } = user;
-            client.action(
+            client.say(
               chan,
               `${userstate.username} кинул хук в чат и попал в ${name}`
             );
