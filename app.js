@@ -91,7 +91,7 @@ client.on("chat", (channel, userstate, message, fromSelf) => {
         `${userstate.username} кинул хук в чат и попал в ${dest}`
       );
     } else {
-      getRandomChatter(chan, /*opts = {skipList = [""] }*/)
+      getRandomChatter(chan, opts = {skipList = ["Crunchipchip", "Lurxx","Thiccur", "Universe"] })
         .then(user => {
           if (user === null) {
             client.say(
