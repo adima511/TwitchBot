@@ -59,7 +59,7 @@ function getChatters(channelName, _attemptCount = 0) {
 }
 
 function getRandomChatter(channelName, opts = {}) {
-  let { onlyViewers = false, noBroadcaster = false, skipList = ["Crunchipchip", "Lurxx","Thiccur", "Universe"] } = opts;
+  let { onlyViewers = false, noBroadcaster = false, skipList = ["crunchipchip", "lurxx","thiccur", "universe"] } = opts;
   return getChatters(channelName).then(data => {
     let chatters = data.filter(
       ({ name, type }) =>
