@@ -59,7 +59,7 @@ function getChatters(channelName, _attemptCount = 0) {
 }
 
 function getRandomChatter(channelName, opts = {}) {
-  let { onlyViewers = false, noBroadcaster = false, skipList = [] } = opts;
+  let { onlyViewers = false, noBroadcaster = false, skipList = ["Crunchipchip", "Lurxx","Thiccur", "Universe"] } = opts;
   return getChatters(channelName).then(data => {
     let chatters = data.filter(
       ({ name, type }) =>
@@ -91,7 +91,7 @@ client.on("chat", (channel, userstate, message, fromSelf) => {
         `${userstate.username} кинул хук в чат и попал в ${dest}`
       );
     } else {
-      getRandomChatter(chan, opts = {skipList : ["Crunchipchip", "Lurxx","Thiccur", "Universe"] })
+      getRandomChatter(chan)
         .then(user => {
           if (user === null) {
             client.say(
