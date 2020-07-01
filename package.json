@@ -1,0 +1,16 @@
+{
+  "name": "http-server",
+  "version": "0.0.2",
+  "description": "A basic HTTP server example app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "request-promise": "^4.2.5",
+    "tmi.js": "^1.5.0"
+  },
+  "engines": {
+    "node": "10"
+  }
+}
