@@ -1,5 +1,13 @@
 const tmi = require("tmi.js");
 
+var express = require("express");
+var app = express();
+app.use(express.logger());
+
+app.get('/', function(request, response) {
+  response.send('Hello World!');
+});
+
 // Define configuration options
 const opts = {
   options: {
